@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Be_Vietnam_Pro } from 'next/font/google';
 import './globals.css';
+import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] });
+const beVietnamPro = Be_Vietnam_Pro({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,8 +17,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} relative`}>
-        <div className='bg-hero-image absolute top-0 left-0 bg-cover bg-center bg-no-repeat w-full h-[210px]' />
+      <body className={`${beVietnamPro.className} bg-dark-text`}>
+        <div className='relative bg-hero-image bg-cover bg-top bg-no-repeat w-full h-[250px] -z-10'>
+          <Image
+            src='/Logo.svg'
+            width={100}
+            height={100}
+            alt='logo'
+            className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/3 lg:w-1/5'
+          />
+        </div>
         {children}
       </body>
     </html>
