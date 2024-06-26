@@ -14,6 +14,13 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'hero-image': 'url("/hero-image-wr.jpg")',
       },
+      colors: {
+        'white-text': '#d2d5da',
+        'blue-text': '#4e80ee',
+        'gray-text': '#6c727f',
+        'dark-text': '#1b1d1f',
+        'dark-light-text': '#282b30',
+      },
     },
   },
   plugins: [],
