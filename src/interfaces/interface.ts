@@ -28,6 +28,7 @@ export interface Flags {
 }
 export interface Name {
   common: string;
+  official: string;
 }
 export enum Region {
   Africa = 'Africa',

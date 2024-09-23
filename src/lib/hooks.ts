@@ -16,7 +16,9 @@ export function useCountriesSortContext() {
 }
 
 const fetchCountries = async (): Promise<ApiResponse[]> => {
-  const res = await fetch('https://restcountries.com/v3.1/all');
+  const res = await fetch('https://restcountries.com/v3.1/all', {
+    // cache: 'no-store',
+  });
   // https://restcountries.com/v3.1/all?fields=name,capital,currencies
 
   if (!res.ok) {
