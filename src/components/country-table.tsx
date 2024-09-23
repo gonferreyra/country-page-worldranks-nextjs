@@ -4,10 +4,7 @@ import { useCountriesSortContext } from '@/lib/hooks';
 import Image from 'next/image';
 
 export default function CountryTable() {
-  const {
-    countriesSearchBy,
-  } = useCountriesSortContext();
-
+  const { countriesSearchBy } = useCountriesSortContext();
 
   return (
     <div className='mt-8 lg:w-3/4'>
@@ -29,7 +26,7 @@ export default function CountryTable() {
                   alt='flag'
                   width={50}
                   height={40}
-                  className='rounded-[4px]'
+                  className='rounded-[4px] w-[50px] h-[40px]'
                 />
               </td>
               <td className='py-4 text-white-text font-bold'>

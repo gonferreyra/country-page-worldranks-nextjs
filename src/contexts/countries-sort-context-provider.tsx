@@ -22,6 +22,7 @@ type CountriesSortContextType = {
   searchBy: string;
   handleSearchBy: (value: string) => void;
   countriesSearchBy: ApiResponse[] | undefined;
+  getCountryByName: (name: string) => ApiResponse;
 };
 
 export const CountriesSortContext =
@@ -40,6 +41,7 @@ export default function CountriesSortContextProvider({
   const [countriesSearchBy, setCountriesSearchBy] = useState<ApiResponse[]>([]);
 
   const { data, isLoading, isError, error } = useCountriesQuery();
+  // console.log(data);
 
   const countriesSorted = useMemo(
     () =>
@@ -110,6 +112,21 @@ export default function CountriesSortContextProvider({
     ]
   );
 
+  const getCountryByName = useCallback(
+    (name: string) => {
+      const country = data?.find(
+        (country) => country.name.common.toLocaleLowerCase() === name
+      );
+
+      if (!country) {
+        throw new Error('Country not found');
+      }
+
+      return country;
+    },
+    [data]
+  );
+
   const handleButtonSelection = (index: number) => {
     setSelectedButtons((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
@@ -160,6 +177,7 @@ export default function CountriesSortContextProvider({
         searchBy,
         handleSearchBy,
         countriesSearchBy,
+        getCountryByName,
       }}
     >
       {children}
